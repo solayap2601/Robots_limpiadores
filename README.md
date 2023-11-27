@@ -1,5 +1,5 @@
 # Robots limpiadores
-Implementación de caso de uso con metodlogía Iconix en django
+Implementación de caso de uso con metodología Iconix en django
 
 -Sebastián Olaya Pérez
 -Juan Sebastián Zapata Echeverrí
