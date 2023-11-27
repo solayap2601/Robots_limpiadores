@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h1>
+    Robots
+</h1>
+<div class="p" >
+<table class="table table-striped table-bordered ">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Dispobibilidad</th>
+        <th>Bateria</th>
+    </tr>
+</thead>
+    {% for i in listarobots %}
+    <tr>
+        <td>
+            {{i.id}}
+        </td>
+        <td>
+            {% if i.estado == 0 %}
+                Ocupado
+            {% else %}
+                Disponible
+            {% endif %}
+        </td>
+        <td>
+            {{i.bateria}}%
+        </td>
+        {% endfor %}
+    </tr>
+</table>
+</div>
+{% endblock %}

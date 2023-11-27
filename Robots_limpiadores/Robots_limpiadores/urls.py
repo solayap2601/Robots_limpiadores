@@ -20,6 +20,10 @@ from sitio import views
 urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('login/plataforma/', views.login_plataforma, name='login_plataforma'),
-    path('login/robot/', views.login_robot, name='login_robot'),
+    path('register/robot/', views.robot_registration, name='robot_registration'),
+    path('register/habitacion/', views.Habita_registration, name='Habita_registration'),
+    path('mostrar', views.mostrar_robot, name='mostrar_robot'),
+    path('carga', views.mandar_estacion,name='mandar_estacion'),
     path('admin/', admin.site.urls),
+    
 ]

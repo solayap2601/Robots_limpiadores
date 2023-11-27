@@ -1,10 +1,28 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h2>Bienvenido</h2>
-  <p>Por favor, selecciona tu tipo de usuario:</p>
-  <a href="{% url 'login_plataforma' %}"><button>Administrador</button></a>
-  <a href="{% url 'login_robot' %}"><button>Robot</button></a>
+<h1>Bienvenido</h1>
+<p>Por favor, selecciona una opcion:</p>
+<div class="divcent">
+  <div class="divin">
+    <p class="inicio">
+      Mandar robots a estacion de carga
+    </p>
+    <a href="{% url 'mandar_estacion' %}"><button>Ir</button></a>
+  </div>
+  <div class="sep"></div>
+  <div class="divin">
+    <p class="inicio">
+      Registrar a un nuevo robot
+    </p>
+    <a href="{% url 'robot_registration'%}"><button>Ir</button></a>
+  </div>
+  <div class="sep"></div>
+  <div class="divin">
+    <p class="inicio">
+      Ver robots activos
+    </p>
+    <a href="{% url 'mostrar_robot' %}"><button>Ir</button></a>
+  </div>
+</div>
 {% endblock %}
-
-
