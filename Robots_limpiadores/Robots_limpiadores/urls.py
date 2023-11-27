@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from sitio import views
 
 urlpatterns = [
+    path('', views.inicio, name='inicio'),
+    path('login/plataforma/', views.login_plataforma, name='login_plataforma'),
+    path('login/robot/', views.login_robot, name='login_robot'),
     path('admin/', admin.site.urls),
 ]

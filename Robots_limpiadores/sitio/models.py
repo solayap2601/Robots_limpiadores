@@ -1,4 +1,30 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser, Group, Permission
+
+class Usuario(AbstractUser):
+    es_administrador = models.BooleanField(default=False)
+
+    # Agrega estos campos para solucionar los errores
+    groups = models.ManyToManyField(
+        Group,
+        verbose_name='groups',
+        blank=True,
+        help_text=(
+            'The groups this user belongs to. A user will get all permissions '
+            'granted to each of their groups.'
+        ),
+        related_name="usuario_set",  # Aquí está el cambio
+        related_query_name="user",
+    )
+
+    user_permissions = models.ManyToManyField(
+        Permission,
+        verbose_name='user permissions',
+        blank=True,
+        help_text='Specific permissions for this user.',
+        related_name="usuario_set",  # Aquí está el cambio
+        related_query_name="user",
+    )
 
 class Plataforma(models.Model):
     pass  # No necesitamos definir los campos de robots y habitaciones aquí
