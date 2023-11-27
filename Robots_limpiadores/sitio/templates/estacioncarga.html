@@ -2,6 +2,13 @@
 {% block content %}
 <h1>Estacion carga</h1>
 <p>
-    los robots han sido enviados a sus respectivas estaciones de carga
+    ingrese el id del robot debe ir a cargar
 </p>
+<div>
+    <form method="post">
+    {% csrf_token %}
+    <input type="text" name="id">
+    <button type="submit">Enviar a cargar</button>
+</form> </div>
+
 {% endblock %}

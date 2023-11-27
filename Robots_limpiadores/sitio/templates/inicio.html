@@ -17,12 +17,23 @@
     </p>
     <a href="{% url 'robot_registration'%}"><button>Ir</button></a>
   </div>
+
   <div class="sep"></div>
+
   <div class="divin">
     <p class="inicio">
       Ver robots activos
     </p>
     <a href="{% url 'mostrar_robot' %}"><button>Ir</button></a>
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="divin">
+    <p class="inicio">
+      Ver robots con una misma tarea (plataforma)
+    </p>
+    <a href="{% url 'plataforma' %}"><button>Ir</button></a>
   </div>
 </div>
 {% endblock %}

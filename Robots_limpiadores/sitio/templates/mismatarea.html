@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h1>
+        Robots con misma tarea
+    </h1>
+    <p>
+        ingrese la tarea que quiere encontrar
+    </p>
+    <div>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="id_plat" >
+        <button type="submit">buscar</button>
+    </form>
+    <ul>
+        los robots que cumplen con esa misma tarea son:
+    {% for i in robots %}
+     <li>{{i.id}}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -8,19 +8,6 @@ from .models import Robot
 def inicio(request):
     return render(request, 'inicio.html')
 
-def login_plataforma(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('inicio')
-    else:
-        form = LoginForm()
-    return render(request, 'login.html', {'form': form})
 
 def robot_registration(request):
     if request.method == 'POST':
@@ -53,4 +40,25 @@ def mostrar_robot(request):
     return render(request, 'most_robot.html',context)
 
 def mandar_estacion(request):
+    if request.method == 'POST':
+        r =  request.POST['id']
+        if Robot.objects.filter(id=r):
+            x = Robot.objects.filter(id = int(r))[0]
+            x.bateria = 100
+            x.save()
+        return redirect('inicio')
+
+    
     return render(request, 'estacioncarga.html')
+
+def plataforma(request):
+    context ={
+        'robots': ''
+    }
+    if request.method == 'POST':
+        r = request.POST['id_plat']
+        if Robot.objects.filter(plataforma=r):
+            x = Robot.objects.filter(plataforma=r)
+            context['robots'] = x.values()
+            return render(request, 'mismatarea.html', context)
+    return render(request, 'mismatarea.html')
